@@ -7,7 +7,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} /> 
         <Route path="/:id" element={<Detail />} />
       </Routes>
     </BrowserRouter>
@@ -17,3 +17,4 @@ const Router = () => {
 export default Router;
 
 // 라우터 파일은 리액트-라우터-돔이 버튼을 눌렀을 때나 주소를 입력했을 때,
+// 어느 라우터로 이동하게할 지 설정.

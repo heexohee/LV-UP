@@ -53,7 +53,7 @@ const initialState = {
     id: uuid(),
     title: "울지말고",
     body: "해내기",
-    isDone: false,
+    isDone: true,
   },
 };
 
@@ -67,7 +67,7 @@ const todos = (state = initialState, action) => {
     case ADD_TODO:
       // 새로운 스토어 내보내기.
       return {
-        ...state,
+      
         todos: [action.payload],
       };
 

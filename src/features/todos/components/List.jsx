@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const List = () => {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos.todos);
+  // 중앙관리소에 있는 state, todos는 리덕스 안에있는 todos
 
   const onDeleteTodo = (id) => {
     dispatch(deleteTodo(id));
@@ -73,11 +74,12 @@ const List = () => {
                     삭제하기
                   </StButton>
                   <StButton
-                    borderColor="green"
-                    onClick={onToggleStatusTodo}
-                  >
-                    {todo.isDone ? "취소!" : "완료!"}
-                  </StButton>
+  borderColor="green"
+  onClick={() => onToggleStatusTodo(todo.id)}
+>
+  {todo.isDone ? "취소!" : "완료!"}
+</StButton>
+
                 </StDialogFooter>
               </StTodoContainer>
             );

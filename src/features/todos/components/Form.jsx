@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import nextId from "react-id-generator";
 import { addTodo } from "../../../redux/modules/todos.js";
 
+const dispatch = useDispatch;//추가
+
 const Form = () => {
   const id = nextId();
   
@@ -23,6 +25,8 @@ const Form = () => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
     
+    ;//추가
+
     setTodo({
       id: 0,
       title: "",
@@ -49,7 +53,7 @@ const Form = () => {
           onChange={onChangeHandler}
         />
       </StInputGroup>
-      <StAddButton>추가하기</StAddButton>
+      <StAddButton type="submit">추가하기</StAddButton>
     </StAddForm>
   );
 };
