@@ -4,19 +4,17 @@ import { useDispatch } from "react-redux";
 import nextId from "react-id-generator";
 import { addTodo } from "../../../redux/modules/todos.js";
 
-
-
 const Form = () => {
-  const dispatch = useDispatch;//추가
+  const dispatch = useDispatch();
   const id = nextId();
-  
+
   const [todo, setTodo] = useState({
     id: 0,
     title: "",
     body: "",
     isDone: false,
   });
-  
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setTodo({ ...todo, [name]: value });
@@ -25,7 +23,7 @@ const Form = () => {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     if (todo.title.trim() === "" || todo.body.trim() === "") return;
-    
+
     const newTodo = {
       id,
       title: todo.title,
@@ -34,11 +32,6 @@ const Form = () => {
     };
 
     dispatch(addTodo(newTodo));
-    // 위 코드에서 onSubmitHandler 함수 내부에 const newTodo = { id, title: todo.title, body: todo.body, isDone: false }; 부분을 추가하여 새로운 todo 객체를 생성하고, dispatch(addTodo(newTodo));를 호출하여 addTodo 액션을 디스패치하도록 수정했습니다.
-
-    // 이제 추가하기 버튼을 클릭하면 새로운 todo가 추가되고 화면에 표시될 것입니다.
-    
-  
 
     setTodo({
       id: 0,
@@ -72,6 +65,7 @@ const Form = () => {
 };
 
 export default Form;
+
 
 const StInputGroup = styled.div`
   display: flex;
