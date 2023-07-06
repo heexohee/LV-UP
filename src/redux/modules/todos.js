@@ -65,11 +65,16 @@ const todos = (state = initialState, action) => {
   // 액션을 지정해서 이렇게 해주라고 적기.
   switch (action.type) {
     case ADD_TODO:
-      // 새로운 스토어 내보내기.
       return {
-      
-        todos: [action.payload],
+        ...state,
+        todos: [...state.todos, action.payload], // 기존의 todos 배열에 새로운 todo를 추가
       };
+
+      case DELETE_TODO:
+        return {
+          ...state,
+          todos: state.todos.filter((todo) => todo.id !== action.payload),
+        };
 
     case TOGGLE_STATUS_TODO:
       return {
